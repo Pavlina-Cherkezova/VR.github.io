@@ -35,7 +35,7 @@
                 beta = THREE.Math.degToRad(event.beta);
                 gamma = THREE.Math.degToRad(event.gamma);
 
-            camera.rotation.set(beta, alpha, 0, 'YZX');
+            camera.rotation.set(beta, -alpha, 0, 'YZX');
         }
 
         scene.background = new THREE.CubeTextureLoader().load([
