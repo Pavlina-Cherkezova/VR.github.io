@@ -17,7 +17,8 @@
 <body>
     <script>
         vaxInit();
-
+        camera.position.set(0, 0, 20);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
         camera.fov = 100;
         onWindowResize();
         window.addEventListener("deviceorientation", deviceOrientation, true);
@@ -31,11 +32,32 @@
         // controls.dampingFactor = 0.1;
 
         function deviceOrientation(event) {
-            var alpha = THREE.Math.degToRad(event.alpha),
-                beta = THREE.Math.degToRad(event.beta);
-                gamma = THREE.Math.degToRad(event.gamma);
+            // var alpha = THREE.Math.degToRad(event.alpha),
+            //     beta = THREE.Math.degToRad(event.beta);
+            //     gamma = THREE.Math.degToRad(event.gamma);
 
-            camera.rotation.set(beta, -alpha, 0, 'YZX');
+            // camera.rotation.set( beta, alpha, -gamma, 'YZX');
+
+            // взимаме ъглите
+            var alpha = event.alpha,
+                gamma = event.gamma;
+
+            if (alpha === null) return;
+
+            // поправяме ги, за да ни е удобно
+            if (gamma >= 0)
+                gamma = 90 - gamma;
+            else {
+                alpha = alpha + 180;
+                gamma = -90 - gamma;
+            }
+
+            // правим ги на радиани
+            alpha = THREE.Math.degToRad(alpha);
+            gamma = THREE.Math.degToRad(gamma);
+
+            // въртим камерата
+            camera.rotation.set(-gamma, alpha, 0, 'YZX')
         }
 
         scene.background = new THREE.CubeTextureLoader().load([
