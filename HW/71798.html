@@ -12,11 +12,12 @@
     <script src="OrbitControls.js"></script>
     <script src="WebGL.js"></script>
     <script src="vax.js"></script>
+    <script src="StereoEffect.js"></script>
 </head>
 
 <body>
     <script>
-        vaxInit();
+        vaxInitParallax();
         camera.position.set(0, 0, 20);
         camera.lookAt(new THREE.Vector3(0, 0, 0));
         camera.fov = 100;
