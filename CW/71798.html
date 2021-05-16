@@ -8,7 +8,7 @@
     <script src="three.min.js"></script>
     <script src="WebGL.js"></script>
     <script src="vax.js"></script>
-=</head>
+</head>
 
 <body>
     <script>
@@ -19,9 +19,9 @@
         camera.fov = 90;
 
         texture = new THREE.CubeTextureLoader().load([
-            'Skansen3/posx.jpg', 'Skansen3/negx.jpg',
-            'Skansen3/posy.jpg', 'Skansen3/negy.jpg',
-            'Skansen3/posz.jpg', 'Skansen3/negz.jpg']);
+            'posx.jpg', 'negx.jpg',
+            'posy.jpg', 'negy.jpg',
+            'posz.jpg', 'negz.jpg']);
         texture.mapping = THREE.CubeRefractionMapping;
         scene.background = texture;
 
